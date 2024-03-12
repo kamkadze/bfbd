@@ -1,0 +1,18 @@
+# Initialize Github object with your access token
+github_token = 'your_access_token'
+github_repo = 'your_repository_name'
+github_user = 'your_username'
+g = Github(github_token)
+
+# Get the repository
+repo = g.get_user(github_user).get_repo(github_repo)
+
+# Path to the file you want to add
+file_path = 'path/to/your/file'
+
+# Open and read the file content
+with open(file_path, 'r') as file:
+    content = file.read()
+
+# Add the file to the repository
+repo.create_file(file_path, "Adding file", content)
